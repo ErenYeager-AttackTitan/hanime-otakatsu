@@ -1,8 +1,11 @@
-lxml==4.6.2
+# Core dependencies
 requests==2.25.0
-img2pdf
 requests_html
 aiofiles
 beautifulsoup4==4.9.3
 fastapi==0.63.0
 uvicorn
+
+# Updated versions for potential pre-built wheels
+lxml==4.6.3  # Latest stable version with pre-built wheels for most platforms
+img2pdf==0.4.0  # Earlier version that may avoid needing libpoppler
