@@ -2,10 +2,12 @@ services:
   - type: web
     name: fastapi-hanime
     env: python
-    region: oregon
-    plan: free  # Choose a plan based on your needs, like 'starter' or 'standard'
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000  # Adjust for your entry file and app
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y libxml2-dev libxslt-dev poppler-utils libpoppler-cpp-dev && \
+      pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    # Adjust for your entry file and app
     healthCheckPath: /
     autoDeploy: true
     
